@@ -1,137 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Héctor Magallanes - Portafolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      color: #000;
-      transition: background 0.3s, color 0.3s;
-    }
-    .dark-mode {
-      background-color: #121212;
-      color: #fff;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    h1 {
-      font-size: 2em;
-      margin: 10px 0;
-    }
-    .subtitle {
-      font-size: 1.1em;
-      color: #666;
-    }
-    .dark-mode .subtitle {
-      color: #ccc;
-    }
-    .download-btn {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      background: #3949ab;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-    .about, .categories {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .about {
-      background-color: #e8eaf6;
-    }
-    .dark-mode .about {
-      background-color: #1e1e2f;
-    }
-    .categories button {
-      margin: 10px 10px 0 0;
-      padding: 8px 16px;
-      background: #3949ab;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .project-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .project-gallery img {
-      width: 200px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-    .theme-toggle {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Héctor Magallanes - Portafolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #111;
+            color: #fff;
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        .cv-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #3f51b5;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0.5rem;
+        }
+
+        .card {
+            background-color: #3f51b5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+            gap: 1rem;
+        }
+
+        .tabs button {
+            padding: 0.5rem 1rem;
+            background-color: #5c6bc0;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        .project-category {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .project-category.active {
+            display: block;
+        }
+
+        .project {
+            display: inline-block;
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .project img {
+            width: 150px;
+            height: auto;
+            border-radius: 0.5rem;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem;
+            background-color: #3f51b5;
+            color: white;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="theme-toggle" onclick="toggleTheme()">✨</div>
-  <header>
-    <img src="images/FOto.png" alt="Foto de Perfil">
-    <h1>Héctor Magallanes</h1>
-    <div class="subtitle">Desarrollador WordPress y Diseñador UX/UI</div>
-    <a href="Hector_Magallanes_CV.pdf" class="download-btn" download>Descargar CV</a>
-  </header>
-  <section class="about">
-    <h2>Sobre mí</h2>
-    <p>Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel.</p>
-  </section>
-  <section class="categories">
-    <h2>Proyectos</h2>
-    <div>
-      <button onclick="showCategory('wordpress')">WordPress & Websites</button>
-      <button onclick="showCategory('excel')">Excel</button>
-      <button onclick="showCategory('videos')">Videos</button>
-      <button onclick="showCategory('otros')">Otros Proyectos</button>
+    <div class="language-switcher" onclick="switchLanguage()">🌍</div>
+    <div class="container">
+        <div class="header">
+            <img src="images/FOto.png" alt="Profile Photo" class="profile-img">
+            <h1 id="name">Héctor Magallanes</h1>
+            <p id="role">Desarrollador WordPress y Diseñador UX/UI</p>
+            <a id="cv-link" class="cv-link" href="images/Hector_Magallanes_CV.pdf" download>Descargar CV</a>
+        </div>
+
+        <div class="card">
+            <h2 id="about-title">Sobre mí</h2>
+            <p id="about-text">
+                Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías,
+                configurado pagos y publicado sitios completos usando WordPress y cPanel.
+            </p>
+
+            <div class="tabs">
+                <button onclick="showCategory('wordpress')">WordPress & Websites</button>
+                <button onclick="showCategory('excel')">Excel</button>
+                <button onclick="showCategory('videos')">Videos</button>
+                <button onclick="showCategory('others')">Other Projects</button>
+            </div>
+
+            <div id="wordpress" class="project-category active">
+                <h3><b>WordPress & Websites</b></h3>
+                <div class="project">
+                    <img src="images/politicaforum.png" alt="PoliticaForum Project">
+                    <p>PoliticaForum Project</p>
+                </div>
+                <div class="project">
+                    <img src="images/maquisoft.png" alt="Maquisoft Project">
+                    <p>Maquisoft Project</p>
+                </div>
+            </div>
+
+            <div id="excel" class="project-category">
+                <h3><b>Excel Projects</b></h3>
+                <!-- Add Excel projects here -->
+            </div>
+
+            <div id="videos" class="project-category">
+                <h3><b>Video Projects</b></h3>
+                <!-- Add Video projects here -->
+            </div>
+
+            <div id="others" class="project-category">
+                <h3><b>Other Projects</b></h3>
+                <!-- Add Other projects here -->
+            </div>
+        </div>
     </div>
-    <div class="project-gallery" id="wordpress">
-      <img src="images/politicaforum.png" alt="Proyecto PoliticaForum">
-      <img src="images/maquisoft.png" alt="Proyecto Maquisoft">
-    </div>
-    <div class="project-gallery" id="excel" style="display:none">
-      <!-- Excel Projects -->
-    </div>
-    <div class="project-gallery" id="videos" style="display:none">
-      <!-- Video Projects -->
-    </div>
-    <div class="project-gallery" id="otros" style="display:none">
-      <!-- Other Projects -->
-    </div>
-  </section>
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
-    function showCategory(cat) {
-      document.querySelectorAll('.project-gallery').forEach(div => {
-        div.style.display = 'none';
-      });
-      document.getElementById(cat).style.display = 'flex';
-    }
-  </script>
+
+    <script>
+        const texts = {
+            es: {
+                name: "Héctor Magallanes",
+                role: "Desarrollador WordPress y Diseñador UX/UI",
+                cv: "Descargar CV",
+                aboutTitle: "Sobre mí",
+                aboutText: "Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel."
+            },
+            en: {
+                name: "Héctor Magallanes",
+                role: "WordPress Developer & UX/UI Enthusiast",
+                cv: "Download CV",
+                aboutTitle: "About Me",
+                aboutText: "Committed professional, results-oriented and passionate about continuous improvement. Specialized in data analysis, QA testing, technical support, and graphic design. I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities. I seek to add value to every project through creativity, efficiency, and teamwork."
+            }
+        };
+
+        let currentLang = 'es';
+
+        function switchLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.getElementById('name').innerText = texts[currentLang].name;
+            document.getElementById('role').innerText = texts[currentLang].role;
+            document.getElementById('cv-link').innerText = texts[currentLang].cv;
+            document.getElementById('about-title').innerText = texts[currentLang].aboutTitle;
+            document.getElementById('about-text').innerText = texts[currentLang].aboutText;
+        }
+
+        function showCategory(id) {
+            document.querySelectorAll('.project-category').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 </body>
+
 </html>
