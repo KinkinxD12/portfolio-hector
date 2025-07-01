@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Héctor Magallanes - Portfolio</title>
+  <title>Select Language / Selecciona Idioma</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
   <style>
     body {
       font-family: 'Outfit', sans-serif;
+      background-color: #f6f8fa;
+      color: #111;
       margin: 0;
       padding: 0;
-      background: white;
-      color: #111;
-    }
-
-    .language-select {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -23,139 +19,49 @@
       height: 100vh;
     }
 
-    .language-select h1 {
+    .container {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h1 {
+      margin-bottom: 2rem;
       font-size: 1.5rem;
     }
 
-    .language-select button {
-      margin: 1rem;
-      padding: 1rem 2rem;
+    .btn {
+      display: block;
+      width: 200px;
+      margin: 1rem auto;
+      padding: 0.75rem;
       font-size: 1rem;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: #f0f0f0;
-    }
-
-    #portfolio {
-      display: none;
-      padding: 2rem;
-    }
-
-    .tabs button {
-      margin: 0.5rem;
-      padding: 0.5rem 1rem;
-      background-color: #3f51b5;
-      color: white;
-      border: none;
+      font-weight: 500;
+      background-color: #e0e0e0;
+      border: 2px solid #ccc;
       border-radius: 0.5rem;
       cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
-    .section {
-      display: none;
+    .btn:hover {
+      background-color: #d5d5d5;
+      transform: scale(1.05);
     }
 
-    .section.active {
-      display: block;
-      margin-top: 2rem;
-    }
-
-    .project img {
-      width: 150px;
-      height: auto;
-      border-radius: 8px;
+    .emoji {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
     }
   </style>
 </head>
-
 <body>
-  <div class="language-select" id="languageSelect">
-    <h1>🌐 <b>Select Language / Selecciona Idioma</b></h1>
-    <button onclick="setLanguage('en')">🇺 us English</button>
-    <button onclick="setLanguage('es')">🇲🇽 mx Español</button>
+  <div class="container">
+    <h1><span class="emoji">🌐</span> Select Language / Selecciona Idioma</h1>
+    <button class="btn" onclick="location.href='main_en.html'">us English</button>
+    <button class="btn" onclick="location.href='main_es.html'">mx Español</button>
   </div>
-
-  <div id="portfolio">
-    <div class="header">
-      <h1 id="name">Héctor Magallanes</h1>
-      <p id="role">Desarrollador WordPress y Diseñador UX/UI</p>
-      <a id="cv-link" href="images/Hector_Magallanes_CV.pdf" download>Descargar CV</a>
-    </div>
-
-    <div class="about">
-      <h2 id="about-title">Sobre mí</h2>
-      <p id="about-text">Texto de presentación aquí.</p>
-    </div>
-
-    <div class="tabs">
-      <button onclick="showSection('wordpress')">WordPress & Websites</button>
-      <button onclick="showSection('excel')">Excel</button>
-      <button onclick="showSection('videos')">Videos</button>
-      <button onclick="showSection('others')">Otros</button>
-    </div>
-
-    <div id="wordpress" class="section active">
-      <div class="project">
-        <img src="images/politicaforum.png" alt="Proyecto">
-        <p>PoliticaForum</p>
-      </div>
-    </div>
-    <div id="excel" class="section">
-      <div class="project">
-        <img src="images/excel1.png" alt="Excel">
-        <p>Excel avanzado</p>
-      </div>
-    </div>
-    <div id="videos" class="section">
-      <div class="project">
-        <img src="images/video1.png" alt="Video">
-        <p>Demo en video</p>
-      </div>
-    </div>
-    <div id="others" class="section">
-      <div class="project">
-        <img src="images/otro1.png" alt="Otro">
-        <p>Plugin Minecraft</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const translations = {
-      es: {
-        name: "Héctor Magallanes",
-        role: "Desarrollador WordPress y Diseñador UX/UI",
-        cv: "Descargar CV",
-        aboutTitle: "Sobre mí",
-        aboutText: "Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel."
-      },
-      en: {
-        name: "Héctor Magallanes",
-        role: "WordPress Developer & UX/UI Designer",
-        cv: "Download CV",
-        aboutTitle: "About Me",
-        aboutText: "I am a WordPress developer with experience in HTML, CSS, QA testing, and visual design. I have built membership sites, set up payments, and published complete sites using WordPress and cPanel."
-      }
-    };
-
-    function setLanguage(lang) {
-      const t = translations[lang];
-      document.getElementById('name').innerText = t.name;
-      document.getElementById('role').innerText = t.role;
-      document.getElementById('cv-link').innerText = t.cv;
-      document.getElementById('about-title').innerText = t.aboutTitle;
-      document.getElementById('about-text').innerText = t.aboutText;
-
-      document.getElementById('languageSelect').style.display = 'none';
-      document.getElementById('portfolio').style.display = 'block';
-    }
-
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
 </body>
-
 </html>
