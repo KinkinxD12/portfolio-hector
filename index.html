@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Héctor Magallanes – Portafolio</title>
+  <style>
+    :root {
+      --bg-light: #f0f0f0;
+      --bg-dark: #121212;
+      --text-light: #1a1a1a;
+      --text-dark: #f0f0f0;
+      --primary: #3f51b5;
+    }
+    html[data-theme="light"] {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+    html[data-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+    .toggle, .back-btn {
+      position: fixed;
+      top: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .toggle { right: 10px; }
+    .back-btn { left: 10px; }
+    .lang-selector {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .lang-btn {
+      margin: 1rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .content { display: none; padding: 2rem; max-width: 900px; margin: auto; }
+    header img {
+      width: 120px;
+      border-radius: 50%;
+      margin-top: 1rem;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .projects img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .download-btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <div class="lang-selector" id="lang-selector">
+    <h2>🌐 Select Language / Selecciona Idioma</h2>
+    <button class="lang-btn" onclick="selectLang('en')">🇺🇸 English</button>
+    <button class="lang-btn" onclick="selectLang('es')">🇲🇽 Español</button>
+  </div>
+
+  <div class="content" id="content-en">
+    <button class="toggle" onclick="toggleTheme()">🌓</button>
+    <button class="back-btn" onclick="goBack()">🔙</button>
+    <header>
+      <img src="foto-perfil.png" alt="Profile Photo">
+      <h1>Héctor Magallanes</h1>
+      <p>WordPress Developer & UX/UI Enthusiast</p>
+      <a href="Hector_Magallanes_CV.pdf" download class="download-btn">📎 Download CV (PDF)</a>
+    </header>
+    <section>
+      <h2>About Me</h2>
+      <p>I’m a WordPress developer with experience in HTML, CSS, QA testing, and visual design. I’ve built membership sites, configured payments, and deployed full sites using WordPress and cPanel.</p>
+    </section>
+    <section>
+      <h2>Projects</h2>
+      <div class="projects">
+        <img src="images/politicaforum.jpg" alt="PoliticaForum Project">
+        <img src="images/maquisoft.jpg" alt="Maquisoft Project">
+      </div>
+    </section>
+  </div>
+
+  <div class="content" id="content-es">
+    <button class="toggle" onclick="toggleTheme()">🌓</button>
+    <button class="back-btn" onclick="goBack()">🔙</button>
+    <header>
+      <img src="foto-perfil.png" alt="Foto de Perfil">
+      <h1>Héctor Magallanes</h1>
+      <p>Desarrollador WordPress y Diseñador UX/UI</p>
+      <a href="Hector_Magallanes_CV.pdf" download class="download-btn">📎 Descargar CV (PDF)</a>
+    </header>
+    <section>
+      <h2>Sobre mí</h2>
+      <p>Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel.</p>
+    </section>
+    <section>
+      <h2>Proyectos</h2>
+      <div class="projects">
+        <img src="images/politicaforum.jpg" alt="Proyecto PoliticaForum">
+        <img src="images/maquisoft.jpg" alt="Proyecto Maquisoft">
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.setAttribute("data-theme", html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    }
+    function selectLang(lang) {
+      document.getElementById('lang-selector').style.display = 'none';
+      document.getElementById('content-en').style.display = 'none';
+      document.getElementById('content-es').style.display = 'none';
+      document.getElementById('content-' + lang).style.display = 'block';
+    }
+    function goBack() {
+      document.getElementById('content-en').style.display = 'none';
+      document.getElementById('content-es').style.display = 'none';
+      document.getElementById('lang-selector').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
