@@ -1,334 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Héctor Magallanes – Portafolio
-  </title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Héctor Magallanes - Portafolio</title>
   <style>
-   :root {
-      --bg-light: #f0f0f0;
-      --bg-dark: #121212;
-      --text-light: #1a1a1a;
-      --text-dark: #f0f0f0;
-      --primary: #3f51b5;
-    }
-    html[data-theme="light"] {
-      background-color: var(--bg-light);
-      color: var(--text-light);
-    }
-    html[data-theme="dark"] {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-    }
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      padding: 0;
+      background-color: #fff;
+      color: #000;
       transition: background 0.3s, color 0.3s;
     }
-    .toggle, .back-btn {
-      position: fixed;
-      top: 10px;
-      background: var(--primary);
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
+    .dark-mode {
+      background-color: #121212;
+      color: #fff;
     }
-    .toggle { right: 10px; }
-    .back-btn { left: 10px; }
-    .lang-selector {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
     }
-    .lang-btn {
-      margin: 1rem;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      cursor: pointer;
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
     }
-    .category-buttons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: space-around;
-      padding: 1rem;
+    h1 {
+      font-size: 2em;
+      margin: 10px 0;
     }
-    .category-buttons button {
-      padding: 1rem 2rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1.1rem;
+    .subtitle {
+      font-size: 1.1em;
+      color: #666;
     }
-    .category-buttons button:hover {
-      background: #303f9f;
-    }
-    .content { display: none; padding: 2rem; max-width: 900px; margin: auto; }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .projects img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    .dark-mode .subtitle {
+      color: #ccc;
     }
     .download-btn {
-      background: var(--primary);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
       display: inline-block;
-      margin-top: 1rem;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #3949ab;
+      color: white;
       text-decoration: none;
+      border-radius: 8px;
+    }
+    .about, .categories {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .about {
+      background-color: #e8eaf6;
+    }
+    .dark-mode .about {
+      background-color: #1e1e2f;
+    }
+    .categories button {
+      margin: 10px 10px 0 0;
+      padding: 8px 16px;
+      background: #3949ab;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .project-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .project-gallery img {
+      width: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
     }
   </style>
- </head>
- <body data-theme="light">
-  <div class="lang-selector" id="lang-selector">
-   <h2>
-    🌐 Select Language / Selecciona Idioma
-   </h2>
-   <button class="lang-btn" onclick="selectLang('en')">
-    🇺🇸 English
-   </button>
-   <button class="lang-btn" onclick="selectLang('es')">
-    🇲🇽 Español
-   </button>
-  </div>
-  <div class="content" id="content-en">
-   <button class="toggle" onclick="toggleTheme()">
-    🌓
-   </button>
-   <button class="back-btn" onclick="goBack()">
-    🔙
-   </button>
-   <header>
-    <img alt="Profile Photo" src="FOto.png"/>
-    <h1>
-     Héctor Magallanes
-    </h1>
-    <p>
-     WordPress Developer &amp; UX/UI Enthusiast
-    </p>
-    <a class="download-btn" download="" href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf">
-     <section>
-      <h2>
-       About Me
-      </h2>
-      <p>
-       Committed professional, results-oriented and passionate about continuous improvement.
-        Specialized in data analysis, QA testing, technical support, and graphic design.
-        I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities.
-        I seek to add value to every project through creativity, efficiency, and teamwork.
-      </p>
-     </section>
-     <div class="category-buttons" id="en-categories">
-      <button onclick="showCategory('wp')">
-       WordPress &amp; Websites
-      </button>
-      <button onclick="showCategory('excel')">
-       Excel
-      </button>
-      <button onclick="showCategory('video')">
-       Videos
-      </button>
-      <button onclick="showCategory('other')">
-       Other Projects
-      </button>
-     </div>
-     <div class="project-category" id="wp">
-      <h3>
-       WordPress &amp; Websites
-      </h3>
-      <div class="projects">
-       <img alt="PoliticaForum Project" src="politicaforum.jpg"/>
-       <img alt="Maquisoft Project" src="maquisoft.jpg"/>
-      </div>
-     </div>
-     <div class="project-category" id="excel" style="display:none">
-      <h3>
-       Excel
-      </h3>
-      <p>
-       Dashboard in Excel for payroll management
-      </p>
-     </div>
-     <div class="project-category" id="video" style="display:none">
-      <h3>
-       Videos
-      </h3>
-      <p>
-       Corporate video created using Adobe Premiere
-      </p>
-     </div>
-     <div class="project-category" id="other" style="display:none">
-      <h3>
-       Other Projects
-      </h3>
-      <p>
-       Various graphic design and illustration projects
-      </p>
-     </div>
-    </a>
-   </header>
-  </div>
-  <div class="project-category" id="excel" style="display:none">
-   <h3>
-    Excel
-   </h3>
-   <p>
-    Dashboard in Excel for payroll management
-   </p>
-  </div>
-  <div class="project-category" id="video" style="display:none">
-   <h3>
-    Videos
-   </h3>
-   <p>
-    Corporate video created using Adobe Premiere
-   </p>
-  </div>
-  <div class="project-category" id="other" style="display:none">
-   <h3>
-    Other Projects
-   </h3>
-   <p>
-    Various graphic design and illustration projects
-   </p>
-  </div>
-  <div class="content" id="content-es">
-   <button class="toggle" onclick="toggleTheme()">
-    🌓
-   </button>
-   <button class="back-btn" onclick="goBack()">
-    🔙
-   </button>
-   <header>
-    <img alt="Profile Photo" src="FOto.png"/>
-    <h1>
-     Héctor Magallanes
-    </h1>
-    <p>
-     Desarrollador WordPress y Diseñador UX/UI
-    </p>
-    <a class="download-btn" download="" href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf">
-     📎 Descargar CV (PDF)
-    </a>
-   </header>
-   <section>
-    <h2>
-     Sobre mí
-    </h2>
-    <p>
-     Profesional comprometido, orientado a resultados y con pasión por la mejora continua.
-          Especializado en análisis de datos, QA testing, soporte técnico y diseño gráfico. Destaco
-          por mi responsabilidad, proactividad, buena ortografía y capacidad de resolución de
-          problemas. Busco aportar valor en cada proyecto mediante creatividad, eficiencia y
-          trabajo en equipo
-    </p>
-   </section>
-   <div class="category-buttons" id="en-categories">
-    <button onclick="showCategory('wp')">
-     WordPress &amp; Websites
-    </button>
-    <button onclick="showCategory('excel')">
-     Excel
-    </button>
-    <button onclick="showCategory('video')">
-     Videos
-    </button>
-    <button onclick="showCategory('other')">
-     Other Projects
-    </button>
-   </div>
-   <div class="project-category" id="wp">
-    <h3>
-     WordPress &amp; Websites
-    </h3>
-    <div class="projects">
-     <img alt="PoliticaForum Project" src="politicaforum.jpg"/>
-     <img alt="Maquisoft Project" src="maquisoft.jpg"/>
+</head>
+<body>
+  <div class="theme-toggle" onclick="toggleTheme()">✨</div>
+  <header>
+    <img src="images/FOto.png" alt="Foto de Perfil">
+    <h1>Héctor Magallanes</h1>
+    <div class="subtitle">Desarrollador WordPress y Diseñador UX/UI</div>
+    <a href="Hector_Magallanes_CV.pdf" class="download-btn" download>Descargar CV</a>
+  </header>
+  <section class="about">
+    <h2>Sobre mí</h2>
+    <p>Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel.</p>
+  </section>
+  <section class="categories">
+    <h2>Proyectos</h2>
+    <div>
+      <button onclick="showCategory('wordpress')">WordPress & Websites</button>
+      <button onclick="showCategory('excel')">Excel</button>
+      <button onclick="showCategory('videos')">Videos</button>
+      <button onclick="showCategory('otros')">Otros Proyectos</button>
     </div>
-   </div>
-   <div class="project-category" id="excel" style="display:none">
-    <h3>
-     Excel
-    </h3>
-    <p>
-     Dashboard in Excel for payroll management
-    </p>
-   </div>
-   <div class="project-category" id="video" style="display:none">
-    <h3>
-     Videos
-    </h3>
-    <p>
-     Corporate video created using Adobe Premiere
-    </p>
-   </div>
-   <div class="project-category" id="other" style="display:none">
-    <h3>
-     Other Projects
-    </h3>
-    <p>
-     Various graphic design and illustration projects
-    </p>
-   </div>
-  </div>
-  <div class="project-category" id="excel" style="display:none">
-   <h3>
-    Excel
-   </h3>
-   <p>
-    Dashboard en Excel para gestión de nómina
-   </p>
-  </div>
-  <div class="project-category" id="video" style="display:none">
-   <h3>
-    Videos
-   </h3>
-   <p>
-    Video corporativo realizado en Adobe Premiere
-   </p>
-  </div>
-  <div class="project-category" id="other" style="display:none">
-   <h3>
-    Otros Proyectos
-   </h3>
-   <p>
-    Proyectos varios de diseño gráfico e ilustración
-   </p>
-  </div>
+    <div class="project-gallery" id="wordpress">
+      <img src="images/politicaforum.png" alt="Proyecto PoliticaForum">
+      <img src="images/maquisoft.png" alt="Proyecto Maquisoft">
+    </div>
+    <div class="project-gallery" id="excel" style="display:none">
+      <!-- Excel Projects -->
+    </div>
+    <div class="project-gallery" id="videos" style="display:none">
+      <!-- Video Projects -->
+    </div>
+    <div class="project-gallery" id="otros" style="display:none">
+      <!-- Other Projects -->
+    </div>
+  </section>
   <script>
-   function toggleTheme() {
-      const html = document.documentElement;
-      html.setAttribute("data-theme", html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
     }
     function showCategory(cat) {
-      document.querySelectorAll('.project-category').forEach(div => div.style.display = 'none');
-      document.getElementById(cat).style.display = 'block';
-    }
-    function selectLang(lang) {
-      document.getElementById('lang-selector').style.display = 'none';
-      document.getElementById('content-en').style.display = 'none';
-      document.getElementById('content-es').style.display = 'none';
-      document.getElementById('content-' + lang).style.display = 'block';
-    }
-    function goBack() {
-      document.getElementById('content-en').style.display = 'none';
-      document.getElementById('content-es').style.display = 'none';
-      document.getElementById('lang-selector').style.display = 'flex';
+      document.querySelectorAll('.project-gallery').forEach(div => {
+        div.style.display = 'none';
+      });
+      document.getElementById(cat).style.display = 'flex';
     }
   </script>
- </body>
+</body>
 </html>
