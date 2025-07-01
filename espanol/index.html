@@ -1,10 +1,155 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
-  <title>Versión en Español</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Héctor Magallanes - CV Español</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      background-color: #2C3E50;
+      color: white;
+      width: 280px;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-img {
+      width: 150px;
+      border-radius: 50%;
+      margin: 1rem 0;
+    }
+
+    .sidebar h3, .sidebar p {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+
+    .download-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .skills {
+      text-align: left;
+      margin-top: 2rem;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 2rem;
+      background-color: #ECF0F1;
+      overflow-y: auto;
+    }
+
+    .tabs button {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .project {
+      margin: 1rem;
+      text-align: center;
+    }
+
+    .project img {
+      width: 150px;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Bienvenido a mi portafolio en Español 🇲🇽</h1>
+  <div class="sidebar">
+    <img src="../images/Foto.png" alt="Foto de perfil" class="profile-img">
+    <h3>Héctor Magallanes</h3>
+    <p>Desarrollador WordPress y Diseñador UX/UI</p>
+    <a href="../images/Hector_Magallanes_CV_ES.pdf" class="download-btn" download>📄 Descargar CV</a>
+    <div class="skills">
+      <h4>Habilidades</h4>
+      <ul>
+        <li>HTML, CSS, WordPress</li>
+        <li>Diseño UX/UI</li>
+        <li>QA Testing</li>
+        <li>Soporte técnico</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h2>Sobre mí</h2>
+    <p>
+      Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías,
+      configurado pagos y publicado sitios completos usando WordPress y cPanel.
+    </p>
+
+    <div class="tabs">
+      <button onclick="showCategory('wordpress')">WordPress & Websites</button>
+      <button onclick="showCategory('excel')">Excel</button>
+      <button onclick="showCategory('videos')">Videos</button>
+      <button onclick="showCategory('others')">Otros</button>
+    </div>
+
+    <div class="project-section">
+      <div id="wordpress" class="projects">
+        <div class="project">
+          <img src="../images/politicaforum.png" alt="PoliticaForum">
+          <p>politicaforum.com</p>
+        </div>
+        <div class="project">
+          <img src="../images/maquisoft.png" alt="Maquisoft">
+          <p>maquisoft.com.mx</p>
+        </div>
+      </div>
+
+      <div id="excel" class="projects" style="display:none">
+        <!-- Proyectos de Excel -->
+      </div>
+      <div id="videos" class="projects" style="display:none">
+        <!-- Proyectos de Videos -->
+      </div>
+      <div id="others" class="projects" style="display:none">
+        <div class="project">
+          <img src="../images/otro.png" alt="Otro">
+          <p>Plugin Minecraft</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showCategory(id) {
+      document.querySelectorAll('.projects').forEach(el => el.style.display = 'none');
+      document.getElementById(id).style.display = 'flex';
+    }
+  </script>
 </body>
+
 </html>
