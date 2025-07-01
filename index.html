@@ -4,149 +4,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Héctor Magallanes - Portafolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Héctor Magallanes - Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
   <style>
     body {
       font-family: 'Outfit', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      color: #000000;
+      background: white;
+      color: #111;
     }
 
-    .center {
-      text-align: center;
-      margin-top: 100px;
+    .language-select {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .language-select h1 {
+      font-size: 1.5rem;
     }
 
     .language-select button {
-      padding: 1rem 2rem;
       margin: 1rem;
-      font-size: 1.2rem;
-      border: none;
-      background-color: #3f51b5;
-      color: white;
-      border-radius: 1rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
       cursor: pointer;
-      font-weight: 600;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f0f0f0;
     }
 
-    .hidden {
+    #portfolio {
       display: none;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
       padding: 2rem;
-    }
-
-    header {
-      text-align: center;
-    }
-
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .cv-link {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background-color: #3f51b5;
-      color: white;
-      border-radius: 0.5rem;
-      text-decoration: none;
-    }
-
-    .card {
-      background-color: #3f51b5;
-      color: white;
-      border-radius: 0.5rem;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin: 1rem 0;
     }
 
     .tabs button {
+      margin: 0.5rem;
       padding: 0.5rem 1rem;
-      background-color: #5c6bc0;
+      background-color: #3f51b5;
       color: white;
       border: none;
       border-radius: 0.5rem;
       cursor: pointer;
-      font-weight: 600;
     }
 
-    .project-category {
+    .section {
       display: none;
     }
 
-    .project-category.active {
+    .section.active {
       display: block;
-    }
-
-    .project {
-      display: inline-block;
-      margin: 1rem;
-      text-align: center;
+      margin-top: 2rem;
     }
 
     .project img {
       width: 150px;
       height: auto;
-      border-radius: 0.5rem;
+      border-radius: 8px;
     }
   </style>
 </head>
 
 <body>
-  <div class="center" id="language-choice">
-    <h2>Selecciona tu idioma / Select your language</h2>
-    <div class="language-select">
-      <button onclick="loadLanguage('es')">Español</button>
-      <button onclick="loadLanguage('en')">English</button>
-    </div>
+  <div class="language-select" id="languageSelect">
+    <h1>🌐 <b>Select Language / Selecciona Idioma</b></h1>
+    <button onclick="setLanguage('en')">🇺 us English</button>
+    <button onclick="setLanguage('es')">🇲🇽 mx Español</button>
   </div>
 
-  <div class="container hidden" id="content">
-    <header>
-      <img src="FOto.png" alt="Foto de perfil" class="profile-img">
-      <h1 id="name"></h1>
-      <p id="role"></p>
-      <a id="cv-link" class="cv-link" href="CV-Hmagallanes.pdf" download></a>
-    </header>
+  <div id="portfolio">
+    <div class="header">
+      <h1 id="name">Héctor Magallanes</h1>
+      <p id="role">Desarrollador WordPress y Diseñador UX/UI</p>
+      <a id="cv-link" href="images/Hector_Magallanes_CV.pdf" download>Descargar CV</a>
+    </div>
 
-    <div class="card">
-      <h2 id="about-title"></h2>
-      <p id="about-text"></p>
+    <div class="about">
+      <h2 id="about-title">Sobre mí</h2>
+      <p id="about-text">Texto de presentación aquí.</p>
+    </div>
 
-      <div class="tabs">
-        <button onclick="showCategory('wp')">WordPress</button>
-        <button onclick="showCategory('excel')">Excel</button>
-        <button onclick="showCategory('videos')">Videos</button>
-        <button onclick="showCategory('otros')">Otros</button>
+    <div class="tabs">
+      <button onclick="showSection('wordpress')">WordPress & Websites</button>
+      <button onclick="showSection('excel')">Excel</button>
+      <button onclick="showSection('videos')">Videos</button>
+      <button onclick="showSection('others')">Otros</button>
+    </div>
+
+    <div id="wordpress" class="section active">
+      <div class="project">
+        <img src="images/politicaforum.png" alt="Proyecto">
+        <p>PoliticaForum</p>
       </div>
-
-      <div id="wp" class="project-category active">
-        <h3>WordPress</h3>
-        <div class="project"><img src="politicaforum.png"><p>politicaforum.com</p></div>
-        <div class="project"><img src="maquisoft.png"><p>maquisoft.com.mx</p></div>
+    </div>
+    <div id="excel" class="section">
+      <div class="project">
+        <img src="images/excel1.png" alt="Excel">
+        <p>Excel avanzado</p>
       </div>
-      <div id="excel" class="project-category"><h3>Excel</h3></div>
-      <div id="videos" class="project-category"><h3>Videos</h3></div>
-      <div id="otros" class="project-category"><h3>Otros</h3></div>
+    </div>
+    <div id="videos" class="section">
+      <div class="project">
+        <img src="images/video1.png" alt="Video">
+        <p>Demo en video</p>
+      </div>
+    </div>
+    <div id="others" class="section">
+      <div class="project">
+        <img src="images/otro1.png" alt="Otro">
+        <p>Plugin Minecraft</p>
+      </div>
     </div>
   </div>
 
@@ -157,30 +128,32 @@
         role: "Desarrollador WordPress y Diseñador UX/UI",
         cv: "Descargar CV",
         aboutTitle: "Sobre mí",
-        aboutText: "Profesional comprometido, orientado a resultados y con pasión por la mejora continua. Especializado en análisis de datos, pruebas QA, soporte técnico y diseño gráfico. Destaco por mi responsabilidad, proactividad, buena ortografía y capacidad de resolución de problemas. Busco aportar valor en cada proyecto mediante creatividad, eficiencia y trabajo en equipo."
+        aboutText: "Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel."
       },
       en: {
         name: "Héctor Magallanes",
-        role: "WordPress Developer & UX/UI Enthusiast",
+        role: "WordPress Developer & UX/UI Designer",
         cv: "Download CV",
         aboutTitle: "About Me",
-        aboutText: "Committed professional, results-oriented and passionate about continuous improvement. Specialized in data analysis, QA testing, technical support, and graphic design. I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities. I seek to add value to every project through creativity, efficiency, and teamwork."
+        aboutText: "I am a WordPress developer with experience in HTML, CSS, QA testing, and visual design. I have built membership sites, set up payments, and published complete sites using WordPress and cPanel."
       }
     };
 
-    function loadLanguage(lang) {
-      document.getElementById("language-choice").classList.add("hidden");
-      document.getElementById("content").classList.remove("hidden");
-      document.getElementById("name").innerText = translations[lang].name;
-      document.getElementById("role").innerText = translations[lang].role;
-      document.getElementById("cv-link").innerText = translations[lang].cv;
-      document.getElementById("about-title").innerText = translations[lang].aboutTitle;
-      document.getElementById("about-text").innerText = translations[lang].aboutText;
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('name').innerText = t.name;
+      document.getElementById('role').innerText = t.role;
+      document.getElementById('cv-link').innerText = t.cv;
+      document.getElementById('about-title').innerText = t.aboutTitle;
+      document.getElementById('about-text').innerText = t.aboutText;
+
+      document.getElementById('languageSelect').style.display = 'none';
+      document.getElementById('portfolio').style.display = 'block';
     }
 
-    function showCategory(id) {
-      document.querySelectorAll(".project-category").forEach((el) => el.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
   </script>
 </body>
