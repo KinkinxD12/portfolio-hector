@@ -16,6 +16,7 @@
       display: flex;
       min-height: 100vh;
       overflow: hidden;
+      transition: background 0.3s, color 0.3s;
     }
 
     .sidebar {
@@ -30,6 +31,7 @@
       height: 100vh;
       position: sticky;
       top: 0;
+      transition: background 0.3s, color 0.3s;
     }
 
     .profile-img {
@@ -51,6 +53,7 @@
       border: none;
       border-radius: 5px;
       text-decoration: none;
+      transition: background 0.3s;
     }
 
     .skills {
@@ -63,6 +66,7 @@
       padding: 2rem;
       background-color: #ECF0F1;
       overflow-y: auto;
+      transition: background 0.3s, color 0.3s;
     }
 
     .tabs button {
@@ -73,6 +77,7 @@
       border: none;
       border-radius: 0.5rem;
       cursor: pointer;
+      transition: background 0.3s, color 0.3s;
     }
 
     .projects {
@@ -115,51 +120,72 @@
       border-radius: 1rem;
     }
 
-    /* MODO OSCURO AUTOMÁTICO */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #1e1e1e;
-        color: #f0f0f0;
-      }
+    /* BOTÓN MODO OSCURO */
+    #darkModeToggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 10000;
+      padding: 10px 15px;
+      background: #444;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      opacity: 0.92;
+      transition: background 0.3s, color 0.3s;
+    }
 
-      .main-content {
-        background-color: #2c2c2c;
-      }
+    #darkModeToggle:hover {
+      background: #222;
+      color: #ffd700;
+    }
 
-      .tabs button {
-        background-color: #444;
-        color: white;
-      }
+    /* --- MODO OSCURO --- */
+    body.dark {
+      background-color: #181a1b !important;
+      color: #f0f0f0 !important;
+    }
 
-      .tabs button:hover {
-        background-color: #555;
-      }
+    body.dark .sidebar {
+      background-color: #141617 !important;
+      color: #f0f0f0 !important;
+    }
 
-      .project p, .project a {
-        color: #ddd;
-      }
+    body.dark .main-content {
+      background-color: #1c1e22 !important;
+      color: #f0f0f0 !important;
+    }
 
-      .download-btn {
-        background-color: #2980b9;
-      }
+    body.dark .tabs button {
+      background-color: #222a34 !important;
+      color: #f5f5f5 !important;
+    }
 
-      .sidebar {
-        background-color: #111;
-        color: white;
-      }
+    body.dark .tabs button:hover {
+      background-color: #333 !important;
+    }
 
-      ul li {
-        color: #f0f0f0;
-      }
+    body.dark .download-btn {
+      background-color: #222a34 !important;
+      color: #ffd700 !important;
+    }
+
+    body.dark a, body.dark a:visited {
+      color: #9cd4ff !important;
+    }
+
+    body.dark ul li {
+      color: #e6e6e6;
     }
 
     /* RESPONSIVO PARA CELULARES Y TABLETS */
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 900px) {
       body {
         flex-direction: column;
         overflow: auto;
       }
-
       .sidebar {
         width: 100%;
         height: auto;
@@ -169,39 +195,49 @@
         justify-content: center;
         padding: 1rem;
       }
-
       .profile-img {
         width: 100px;
         margin: 0.5rem;
       }
-
       .main-content {
         padding: 1rem;
       }
-
       .tabs {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
       }
-
       .tabs button {
         flex: 1 0 40%;
         margin: 0.3rem;
+        font-size: 1rem;
       }
-
       .projects {
         justify-content: center;
       }
-
       .project img {
         width: 90%;
         max-width: 280px;
       }
-
       .skills {
         width: 100%;
         text-align: center;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .sidebar {
+        flex-direction: column;
+        align-items: center;
+      }
+      .project img {
+        width: 100%;
+        max-width: 350px;
+      }
+      .main-content, .tabs button {
+        font-size: 1rem;
+      }
+      .tabs button {
+        min-width: 120px;
       }
     }
   </style>
@@ -214,20 +250,23 @@
     <p>Desarrollador WordPress y Diseñador UX/UI</p>
     <a href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/Hector_Magallanes_CV.pdf" class="download-btn" download>📄 Descargar CV</a>
     <div class="skills">
-  <h4>Habilidades</h4>
-  <ul>
-    <li>HTML, CSS, WordPress</li>
-    <li>Diseño UX/UI</li>
-    <li>QA Testing</li>
-    <li>Soporte técnico</li>
-    <li>Paquetería Office</li>
-    <li>Adobe Creative Suite</li>
-    <li>Corel Draw</li>
-    <li>Vegas Pro</li>
-    <li>Optimización de Procesos</li>
-  </ul>
+      <h4>Habilidades</h4>
+      <ul>
+        <li>HTML, CSS, WordPress</li>
+        <li>Diseño UX/UI</li>
+        <li>QA Testing</li>
+        <li>Soporte técnico</li>
+        <li>Paquetería Office</li>
+        <li>Adobe Creative Suite</li>
+        <li>Corel Draw</li>
+        <li>Vegas Pro</li>
+        <li>Optimización de Procesos</li>
+      </ul>
     </div>
   </div>
+
+  <!-- BOTÓN MODO OSCURO -->
+  <button id="darkModeToggle">🌙 Modo oscuro</button>
 
   <div class="main-content">
     <h2>Sobre mí</h2>
@@ -236,7 +275,7 @@
         por mi responsabilidad, proactividad, buena ortografía y capacidad de resolución de
         problemas. Busco aportar valor en cada proyecto mediante creatividad, eficiencia y
         trabajo en equipo.
-                          </p>
+    </p>
 
     <h2 id="proyectos">Proyectos</h2>
     <div class="tabs">
@@ -258,30 +297,28 @@
           <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/Maqui.png" alt="Maquisoft">
           <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/maqui2.png" alt="Maquisoft">
           <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/descarga (3).png" alt="Maquisoft">
-          
           <p><a href="https://maquisoft.com.mx" target="_blank">maquisoft.com.mx</a></p>
         </div>
       </div>
 
-        <div id="excel" class="projects" style="display:none">
-      <div class="project">
-        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel6.png" alt="Texto a letra">
-        <p>Convierte texto en número a letra<br><strong>cotización-maquisoft Final.xlsm</strong></p>
+      <div id="excel" class="projects" style="display:none">
+        <div class="project">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel6.png" alt="Texto a letra">
+          <p>Convierte texto en número a letra<br><strong>cotización-maquisoft Final.xlsm</strong></p>
+        </div>
+        <div class="project">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel4.png" alt="Importar XML">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel5.png" alt="Importar XML">
+          <p>Importa XML directo a Excel para documentar facturas<br><strong>Subir Facturas Final.xlsm</strong></p>
+        </div>
+        <div class="project">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel1.png" alt="WhatsApp Spammer">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel2.png" alt="WhatsApp Spammer">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel3.png" alt="WhatsApp Spammer">
+          <p>Envía mensajes masivos por WhatsApp desde Excel<br><strong>KinkinSender Final 3.5.xlsm</strong></p>
+        </div>
       </div>
-      <div class="project">
-        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel4.png" alt="Importar XML">
-        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel5.png" alt="Importar XML">
-        <p>Importa XML directo a Excel para documentar facturas<br><strong>Subir Facturas Final.xlsm</strong></p>
-      </div>
-      <div class="project">
-        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel1.png" alt="WhatsApp Spammer">
-        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel2.png" alt="WhatsApp Spammer">
-        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel3.png" alt="WhatsApp Spammer">
-        <p>Envía mensajes masivos por WhatsApp desde Excel<br><strong>KinkinSender Final 3.5.xlsm</strong></p>
-      </div>
-    </div>
 
-      
       <div id="videos" class="projects" style="display:none"></div>
       <div id="others" class="projects" style="display:none">
         <div class="project">
@@ -297,11 +334,13 @@
   </div>
 
   <script>
+    // Categorías de proyectos
     function showCategory(id) {
       document.querySelectorAll('.projects').forEach(el => el.style.display = 'none');
       document.getElementById(id).style.display = 'flex';
     }
 
+    // Lightbox para imágenes
     document.querySelectorAll('.project img').forEach(img => {
       img.addEventListener('click', () => {
         document.getElementById('lightbox-img').src = img.src;
@@ -311,6 +350,24 @@
 
     document.getElementById('lightbox').addEventListener('click', () => {
       document.getElementById('lightbox').style.display = 'none';
+    });
+
+    // --- BOTÓN MODO OSCURO ---
+    const darkModeBtn = document.getElementById('darkModeToggle');
+    // Mantener preferencia al recargar
+    if (localStorage.getItem('darkmode') === 'on') {
+      document.body.classList.add('dark');
+      darkModeBtn.innerHTML = "☀️ Modo claro";
+    }
+    darkModeBtn.addEventListener('click', function() {
+      document.body.classList.toggle('dark');
+      if (document.body.classList.contains('dark')) {
+        localStorage.setItem('darkmode', 'on');
+        darkModeBtn.innerHTML = "☀️ Modo claro";
+      } else {
+        localStorage.setItem('darkmode', 'off');
+        darkModeBtn.innerHTML = "🌙 Modo oscuro";
+      }
     });
   </script>
 </body>
