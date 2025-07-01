@@ -15,17 +15,14 @@
     body {
       display: flex;
       min-height: 100vh;
-      /* NO pongas overflow: hidden aquí */
     }
-
-    /* SIDEBAR ------------------- */
-    }    
+    
     .sidebar {
       background-color: #2C3E50;
       color: white;
-      width: 210px;
-      min-width: 170px;
-      max-width: 250px;
+      width: 180px;
+      min-width: 140px;
+      max-width: 210px;
       padding: 2rem 1rem;
       display: flex;
       flex-direction: column;
@@ -34,7 +31,6 @@
       height: 100vh;
       position: sticky;
       top: 0;
-      /* QUITA overflow-y: auto; */
       box-sizing: border-box;
       z-index: 30;
     }
@@ -88,13 +84,14 @@
     }
 
     /* MAIN CONTENT ------------------- */
+
     .main-content {
       flex-grow: 1;
       padding: 2rem;
       background-color: #ECF0F1;
-      overflow-y: auto;
       min-width: 0;
-      transition: background 0.3s, color 0.3s;
+      max-width: 950px; /* Ajústalo a tu gusto */
+      margin: 0 auto; /* ¡Esto centra el contenido! */
     }
     .main-content h2 {
       margin-top: 0;
