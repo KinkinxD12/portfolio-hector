@@ -15,12 +15,11 @@
     body {
       display: flex;
       min-height: 100vh;
-      overflow: hidden;
-      background: #ecf0f1;
-      transition: background 0.3s, color 0.3s;
+      /* NO pongas overflow: hidden aquí */
     }
 
     /* SIDEBAR ------------------- */
+    }    
     .sidebar {
       background-color: #2C3E50;
       color: white;
@@ -35,7 +34,7 @@
       height: 100vh;
       position: sticky;
       top: 0;
-      overflow-y: auto;
+      /* QUITA overflow-y: auto; */
       box-sizing: border-box;
       z-index: 30;
     }
