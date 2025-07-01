@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,17 +99,21 @@
             position: fixed;
             top: 1rem;
             right: 1rem;
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
             background-color: #3f51b5;
             color: white;
             border-radius: 0.5rem;
             cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
     </style>
 </head>
-
 <body>
-    <div class="language-switcher" onclick="switchLanguage()">🌍</div>
+    <button id="language-toggle" class="language-switcher" onclick="switchLanguage()" aria-label="Cambiar idioma a Inglés">
+      🌍 <span id="language-label">English</span>
+    </button>
+
     <div class="container">
         <div class="header">
             <img src="images/FOto.png" alt="Profile Photo" class="profile-img">
@@ -168,14 +172,18 @@
                 role: "Desarrollador WordPress y Diseñador UX/UI",
                 cv: "Descargar CV",
                 aboutTitle: "Sobre mí",
-                aboutText: "Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel."
+                aboutText: "Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel.",
+                langLabel: "English",
+                ariaLabel: "Cambiar idioma a Inglés"
             },
             en: {
                 name: "Héctor Magallanes",
                 role: "WordPress Developer & UX/UI Enthusiast",
                 cv: "Download CV",
                 aboutTitle: "About Me",
-                aboutText: "Committed professional, results-oriented and passionate about continuous improvement. Specialized in data analysis, QA testing, technical support, and graphic design. I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities. I seek to add value to every project through creativity, efficiency, and teamwork."
+                aboutText: "Committed professional, results-oriented and passionate about continuous improvement. Specialized in data analysis, QA testing, technical support, and graphic design. I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities. I seek to add value to every project through creativity, efficiency, and teamwork.",
+                langLabel: "Español",
+                ariaLabel: "Switch language to Spanish"
             }
         };
 
@@ -188,6 +196,8 @@
             document.getElementById('cv-link').innerText = texts[currentLang].cv;
             document.getElementById('about-title').innerText = texts[currentLang].aboutTitle;
             document.getElementById('about-text').innerText = texts[currentLang].aboutText;
+            document.getElementById('language-label').innerText = texts[currentLang].langLabel;
+            document.getElementById('language-toggle').setAttribute('aria-label', texts[currentLang].ariaLabel);
         }
 
         function showCategory(id) {
@@ -196,5 +206,4 @@
         }
     </script>
 </body>
-
 </html>
