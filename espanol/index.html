@@ -98,7 +98,6 @@
       transform: scale(1.05);
     }
 
-    /* Lightbox */
     #lightbox {
       display: none;
       position: fixed;
@@ -137,11 +136,9 @@
 
   <div class="main-content">
     <h2>Sobre mí</h2>
-    <p>
-      Profesional comprometido, orientado a resultados y con pasión por la mejora continua. Especializado en análisis de datos, QA testing, soporte técnico y diseño gráfico. Destaco por mi responsabilidad, proactividad, buena ortografía y capacidad de resolución de problemas. Busco aportar valor en cada 
-      proyecto mediante creatividad, eficiencia y trabajo en equipo.
-    </p>
+    <p>Profesional comprometido, orientado a resultados y con pasión por la mejora continua...</p>
 
+    <h2 id="proyectos">Proyectos</h2>
     <div class="tabs">
       <button onclick="showCategory('wordpress')">WordPress & Websites</button>
       <button onclick="showCategory('excel')">Excel</button>
@@ -158,8 +155,8 @@
           <p><a href="https://politicaforum.com" target="_blank">politicaforum.com</a></p>
         </div>
         <div class="project">
-          <img src="../images/maquisoft.png" alt="Maquisoft">
-          <p>maquisoft.com.mx</p>
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/maquisoft.png" alt="Maquisoft">
+          <p><a href="https://maquisoft.com.mx" target="_blank">maquisoft.com.mx</a></p>
         </div>
       </div>
 
@@ -167,14 +164,13 @@
       <div id="videos" class="projects" style="display:none"></div>
       <div id="others" class="projects" style="display:none">
         <div class="project">
-          <img src="../images/otro.png" alt="Plugin Minecraft">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/otro.png" alt="Plugin Minecraft">
           <p>Plugin Minecraft</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Lightbox HTML -->
   <div id="lightbox">
     <img id="lightbox-img" src="">
   </div>
@@ -185,7 +181,6 @@
       document.getElementById(id).style.display = 'flex';
     }
 
-    // Lightbox logic
     document.querySelectorAll('.project img').forEach(img => {
       img.addEventListener('click', () => {
         document.getElementById('lightbox-img').src = img.src;
