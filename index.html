@@ -52,16 +52,25 @@
       font-size: 1.2rem;
       cursor: pointer;
     }
+    .category-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+    }
+    .category-buttons button {
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    .category-buttons button:hover {
+      background: #303f9f;
+    }
     .content { display: none; padding: 2rem; max-width: 900px; margin: auto; }
-    header img {
-      width: 120px;
-      border-radius: 50%;
-      margin-top: 1rem;
-    }
-    header {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -94,54 +103,132 @@
     <button class="toggle" onclick="toggleTheme()">🌓</button>
     <button class="back-btn" onclick="goBack()">🔙</button>
     <header>
-      <img src="FOto.png" alt="Profile Photo">
+      <img src="foto-perfil.png" alt="Profile Photo">
       <h1>Héctor Magallanes</h1>
       <p>WordPress Developer & UX/UI Enthusiast</p>
-      <a href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf" download class="download-btn">
-📎 Descargar CV (PDF)
-</a>
+      <a href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf" download class="download-btn">📎 Download CV (PDF)</a>
     </header>
     <section>
       <h2>About Me</h2>
       <p>I’m a WordPress developer with experience in HTML, CSS, QA testing, and visual design. I’ve built membership sites, configured payments, and deployed full sites using WordPress and cPanel.</p>
     </section>
-    <section>
-      <h2>Projects</h2>
+
+    <div class="category-buttons" id="en-categories">
+      <button onclick="showCategory('wp')">WordPress & Websites</button>
+      <button onclick="showCategory('excel')">Excel</button>
+      <button onclick="showCategory('video')">Videos</button>
+      <button onclick="showCategory('other')">Other Projects</button>
+    </div>
+
+    <div id="wp" class="project-category">
+      <h3>WordPress & Websites</h3>
       <div class="projects">
         <img src="images/politicaforum.jpg" alt="PoliticaForum Project">
         <img src="images/maquisoft.jpg" alt="Maquisoft Project">
       </div>
-    </section>
+    </div>
+
+    <div id="excel" class="project-category" style="display:none">
+      <h3>Excel</h3>
+      <p>Dashboard in Excel for payroll management</p>
+    </div>
+
+    <div id="video" class="project-category" style="display:none">
+      <h3>Videos</h3>
+      <p>Corporate video created using Adobe Premiere</p>
+    </div>
+
+    <div id="other" class="project-category" style="display:none">
+      <h3>Other Projects</h3>
+      <p>Various graphic design and illustration projects</p>
+    </div>
+    </div>
+
+    <div id="excel" class="project-category" style="display:none">
+      <h3>Excel</h3>
+      <p>Dashboard in Excel for payroll management</p>
+    </div>
+
+    <div id="video" class="project-category" style="display:none">
+      <h3>Videos</h3>
+      <p>Corporate video created using Adobe Premiere</p>
+    </div>
+
+    <div id="other" class="project-category" style="display:none">
+      <h3>Other Projects</h3>
+      <p>Various graphic design and illustration projects</p>
+    </div>
   </div>
 
   <div class="content" id="content-es">
     <button class="toggle" onclick="toggleTheme()">🌓</button>
     <button class="back-btn" onclick="goBack()">🔙</button>
     <header>
-      <img src="FOto.png" alt="Profile Photo">
+      <img src="foto-perfil.png" alt="Foto de Perfil">
       <h1>Héctor Magallanes</h1>
       <p>Desarrollador WordPress y Diseñador UX/UI</p>
-      <a href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf" download class="download-btn">
-📎 Descargar CV (PDF)
-</a>
+      <a href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf" download class="download-btn">📎 Descargar CV (PDF)</a>
     </header>
     <section>
       <h2>Sobre mí</h2>
       <p>Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel.</p>
     </section>
-    <section>
-      <h2>Proyectos</h2>
+
+    <div class="category-buttons" id="en-categories">
+      <button onclick="showCategory('wp')">WordPress & Websites</button>
+      <button onclick="showCategory('excel')">Excel</button>
+      <button onclick="showCategory('video')">Videos</button>
+      <button onclick="showCategory('other')">Other Projects</button>
+    </div>
+
+    <div id="wp" class="project-category">
+      <h3>WordPress & Websites</h3>
       <div class="projects">
-        <img src="images/politicaforum.jpg" alt="Proyecto PoliticaForum">
-        <img src="images/maquisoft.jpg" alt="Proyecto Maquisoft">
+        <img src="images/politicaforum.jpg" alt="PoliticaForum Project">
+        <img src="images/maquisoft.jpg" alt="Maquisoft Project">
       </div>
-    </section>
+    </div>
+
+    <div id="excel" class="project-category" style="display:none">
+      <h3>Excel</h3>
+      <p>Dashboard in Excel for payroll management</p>
+    </div>
+
+    <div id="video" class="project-category" style="display:none">
+      <h3>Videos</h3>
+      <p>Corporate video created using Adobe Premiere</p>
+    </div>
+
+    <div id="other" class="project-category" style="display:none">
+      <h3>Other Projects</h3>
+      <p>Various graphic design and illustration projects</p>
+    </div>
+    </div>
+
+    <div id="excel" class="project-category" style="display:none">
+      <h3>Excel</h3>
+      <p>Dashboard en Excel para gestión de nómina</p>
+    </div>
+
+    <div id="video" class="project-category" style="display:none">
+      <h3>Videos</h3>
+      <p>Video corporativo realizado en Adobe Premiere</p>
+    </div>
+
+    <div id="other" class="project-category" style="display:none">
+      <h3>Otros Proyectos</h3>
+      <p>Proyectos varios de diseño gráfico e ilustración</p>
+    </div>
   </div>
 
   <script>
     function toggleTheme() {
       const html = document.documentElement;
       html.setAttribute("data-theme", html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    }
+    function showCategory(cat) {
+      document.querySelectorAll('.project-category').forEach(div => div.style.display = 'none');
+      document.getElementById(cat).style.display = 'block';
     }
     function selectLang(lang) {
       document.getElementById('lang-selector').style.display = 'none';
