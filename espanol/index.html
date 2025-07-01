@@ -1,233 +1,188 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Héctor Magallanes - CV Español</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
   <style>
-    :root {
-      --color-bg: #ecf0f1;
-      --color-text: #2c3e50;
-      --color-btn: #3f51b5;
-      --color-sidebar: #2c3e50;
-      --color-sidebar-text: white;
-    }
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+  }
 
-    body.dark {
-      --color-bg: #121212;
-      --color-text: #f5f5f5;
-      --color-btn: #546e7a;
-      --color-sidebar: #1e1e1e;
-      --color-sidebar-text: #e0e0e0;
-    }
+  .main-content {
+    background-color: #2c2c2c;
+  }
 
-    * {
-      box-sizing: border-box;
-    }
+  .tabs button {
+    background-color: #444;
+    color: white;
+  }
 
-    html, body {
-      margin: 0;
-      height: 100%;
-      font-family: 'Outfit', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-text);
-    }
+  .tabs button:hover {
+    background-color: #555;
+  }
 
-    body {
-      display: flex;
-      flex-direction: row;
-      min-height: 100vh;
-    }
+  .project p, .project a {
+    color: #ddd;
+  }
 
-    .sidebar {
-      background-color: var(--color-sidebar);
-      color: var(--color-sidebar-text);
-      width: 280px;
-      padding: 2rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex-shrink: 0;
-      height: 100vh;
-      position: sticky;
-      top: 0;
-    }
+  .download-btn {
+    background-color: #2980b9;
+  }
 
-    .profile-img {
-      width: 150px;
-      border-radius: 50%;
-      margin: 1rem 0;
-    }
+  .sidebar {
+    background-color: #111;
+    color: white;
+  }
 
-    .sidebar h3, .sidebar p {
-      margin: 0.5rem 0;
-      text-align: center;
-    }
+  ul li {
+    color: #f0f0f0;
+  }
+}
 
-    .download-btn {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-    }
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    overflow: auto;
+  }
 
-    .skills {
-      text-align: left;
-      margin-top: 2rem;
-    }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
 
-    .main-content {
-      flex-grow: 1;
-      padding: 2rem;
-      overflow-y: auto;
-    }
+  .sidebar img {
+    width: 100px;
+    margin: 0.5rem;
+  }
 
-    .tabs {
-      margin: 2rem 0 1rem 0;
-    }
+  .main-content {
+    padding: 1rem;
+  }
 
-    .tabs button {
-      margin: 0.5rem;
-      padding: 0.5rem 1rem;
-      background-color: var(--color-btn);
-      color: white;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-    }
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+  .tabs button {
+    flex: 1 0 40%;
+    margin: 0.3rem;
+  }
 
-    .project {
-      text-align: center;
-      max-width: 200px;
-    }
+  .projects {
+    justify-content: center;
+  }
 
-    .project img {
-      width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-    }
+  .project img {
+    width: 90%;
+    max-width: 280px;
+  }
 
-    /* Toggle Dark Mode Button */
-    .toggle-theme {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.3rem 0.8rem;
-      background: var(--color-btn);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* Responsive para móvil */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        flex-direction: row;
-        width: 100%;
-        height: auto;
-        justify-content: space-between;
-        padding: 1rem;
-        position: static;
-      }
-
-      .profile-img {
-        width: 60px;
-        margin: 0;
-      }
-
-      .skills {
-        display: none;
-      }
-
-      .main-content {
-        padding: 1rem;
-      }
-    }
+  .skills {
+    width: 100%;
+    text-align: center;
+  }
+}
   </style>
 </head>
 
 <body>
-  <button class="toggle-theme" onclick="toggleTheme()">🌗 Modo oscuro</button>
-
   <div class="sidebar">
-    <img src="../images/FOto.png" alt="Foto de perfil" class="profile-img" />
-    <div>
-      <h3>Héctor Magallanes</h3>
-      <p>Desarrollador WordPress y Diseñador UX/UI</p>
-      <a href="../images/Hector_Magallanes_CV.pdf" class="download-btn" download>📄 Descargar CV</a>
-    </div>
+    <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/FOto.png" alt="Foto de perfil" class="profile-img">
+    <h3>Héctor Magallanes</h3>
+    <p>Desarrollador WordPress y Diseñador UX/UI</p>
+    <a href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/Hector_Magallanes_CV.pdf" class="download-btn" download>📄 Descargar CV</a>
     <div class="skills">
-      <h4>Habilidades</h4>
-      <ul>
-        <li>HTML, CSS, WordPress</li>
-        <li>Diseño UX/UI</li>
-        <li>QA Testing</li>
-        <li>Soporte técnico</li>
-        <li>Office, Adobe, Corel</li>
-      </ul>
+  <h4>Habilidades</h4>
+  <ul>
+    <li>HTML, CSS, WordPress</li>
+    <li>Diseño UX/UI</li>
+    <li>QA Testing</li>
+    <li>Soporte técnico</li>
+    <li>Paquetería Office</li>
+    <li>Adobe Creative Suite</li>
+    <li>Corel Draw</li>
+    <li>Vegas Pro</li>
+    <li>Optimización de Procesos</li>
+  </ul>
     </div>
   </div>
 
   <div class="main-content">
     <h2>Sobre mí</h2>
-    <p>
-      Profesional comprometido, orientado a resultados y con pasión por la mejora continua. Especializado en análisis de datos, QA testing, soporte técnico y diseño gráfico.
-    </p>
+    <p>Profesional comprometido, orientado a resultados y con pasión por la mejora continua.
+        Especializado en análisis de datos, QA testing, soporte técnico y diseño gráfico. Destaco
+        por mi responsabilidad, proactividad, buena ortografía y capacidad de resolución de
+        problemas. Busco aportar valor en cada proyecto mediante creatividad, eficiencia y
+        trabajo en equipo.
+                          </p>
 
-    <h2>Proyectos</h2>
+    <h2 id="proyectos">Proyectos</h2>
     <div class="tabs">
       <button onclick="showCategory('wordpress')">WordPress & Websites</button>
       <button onclick="showCategory('excel')">Excel</button>
       <button onclick="showCategory('videos')">Videos</button>
-      <button onclick="showCategory('otros')">Otros</button>
+      <button onclick="showCategory('others')">Otros</button>
     </div>
 
     <div class="project-section">
       <div id="wordpress" class="projects">
         <div class="project">
-          <img src="../images/politicaforum.png" alt="PoliticaForum" />
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/download.png" alt="PoliticaForum">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/descarga (1).png" alt="PoliticaForum">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/descarga (2).png" alt="PoliticaForum">
           <p><a href="https://politicaforum.com" target="_blank">politicaforum.com</a></p>
         </div>
         <div class="project">
-          <img src="../images/maquisoft.png" alt="Maquisoft" />
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/Maqui.png" alt="Maquisoft">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/maqui2.png" alt="Maquisoft">
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/descarga (3).png" alt="Maquisoft">
+          
           <p><a href="https://maquisoft.com.mx" target="_blank">maquisoft.com.mx</a></p>
         </div>
       </div>
 
-      <div id="excel" class="projects" style="display:none;">
-        <div class="project">
-          <img src="../images/excel1.png" alt="Excel 1" />
-          <p>KinkinSender Final</p>
-        </div>
+        <div id="excel" class="projects" style="display:none">
+      <div class="project">
+        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel6.png" alt="Texto a letra">
+        <p>Convierte texto en número a letra<br><strong>cotización-maquisoft Final.xlsm</strong></p>
       </div>
-
-      <div id="videos" class="projects" style="display:none;">
-        <!-- Proyectos de video -->
+      <div class="project">
+        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel4.png" alt="Importar XML">
+        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel5.png" alt="Importar XML">
+        <p>Importa XML directo a Excel para documentar facturas<br><strong>Subir Facturas Final.xlsm</strong></p>
       </div>
+      <div class="project">
+        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel1.png" alt="WhatsApp Spammer">
+        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel2.png" alt="WhatsApp Spammer">
+        <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/excel3.png" alt="WhatsApp Spammer">
+        <p>Envía mensajes masivos por WhatsApp desde Excel<br><strong>KinkinSender Final 3.5.xlsm</strong></p>
+      </div>
+    </div>
 
-      <div id="otros" class="projects" style="display:none;">
+      
+      <div id="videos" class="projects" style="display:none"></div>
+      <div id="others" class="projects" style="display:none">
         <div class="project">
-          <img src="../images/otro.png" alt="Minecraft Plugin" />
+          <img src="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/images/otro.png" alt="Plugin Minecraft">
           <p>Plugin Minecraft</p>
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="lightbox">
+    <img id="lightbox-img" src="">
   </div>
 
   <script>
@@ -236,10 +191,16 @@
       document.getElementById(id).style.display = 'flex';
     }
 
-    function toggleTheme() {
-      document.body.classList.toggle('dark');
-    }
+    document.querySelectorAll('.project img').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').style.display = 'flex';
+      });
+    });
+
+    document.getElementById('lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'none';
+    });
   </script>
 </body>
-
 </html>
