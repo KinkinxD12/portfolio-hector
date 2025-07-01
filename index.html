@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Héctor Magallanes - Portafolio</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Outfit', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff;
-      color: #000;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .language-select button {
+      padding: 1rem 2rem;
+      margin: 1rem;
+      font-size: 1.2rem;
+      border: none;
+      background-color: #3f51b5;
+      color: white;
+      border-radius: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .hidden {
+      display: none;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       padding: 2rem;
     }
 
-    .language-select {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .language-select button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: none;
-      background: #3f51b5;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
     header {
       text-align: center;
-      margin-bottom: 2rem;
     }
 
     .profile-img {
@@ -48,17 +51,24 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1rem;
     }
 
     .cv-link {
       display: inline-block;
       margin-top: 1rem;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       background-color: #3f51b5;
       color: white;
       border-radius: 0.5rem;
       text-decoration: none;
+    }
+
+    .card {
+      background-color: #3f51b5;
+      color: white;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      margin-top: 2rem;
     }
 
     .tabs {
@@ -66,16 +76,17 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin: 2rem 0 1rem;
+      margin: 1rem 0;
     }
 
     .tabs button {
       padding: 0.5rem 1rem;
-      border: none;
       background-color: #5c6bc0;
       color: white;
+      border: none;
       border-radius: 0.5rem;
       cursor: pointer;
+      font-weight: 600;
     }
 
     .project-category {
@@ -99,91 +110,79 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="language-select" id="lang-select">
-    <button onclick="setLanguage('es')">🌎 Español</button>
-    <button onclick="setLanguage('en')">🌍 English</button>
+  <div class="center" id="language-choice">
+    <h2>Selecciona tu idioma / Select your language</h2>
+    <div class="language-select">
+      <button onclick="loadLanguage('es')">Español</button>
+      <button onclick="loadLanguage('en')">English</button>
+    </div>
   </div>
 
-  <div class="container" id="content-es" style="display:none;">
+  <div class="container hidden" id="content">
     <header>
-      <img src="FOto.png" alt="Foto de perfil" class="profile-img" />
-      <h1>Héctor Magallanes</h1>
-      <p>Desarrollador WordPress y Diseñador UX/UI</p>
-      <a class="cv-link" href="CV-Hmagallanes.pdf" download>📎 Descargar CV</a>
+      <img src="FOto.png" alt="Foto de perfil" class="profile-img">
+      <h1 id="name"></h1>
+      <p id="role"></p>
+      <a id="cv-link" class="cv-link" href="CV-Hmagallanes.pdf" download></a>
     </header>
 
-    <h2>Sobre mí</h2>
-    <p>
-      Profesional comprometido, orientado a resultados y con pasión por la mejora continua.
-      Especializado en análisis de datos, QA testing, soporte técnico y diseño gráfico.
-      Destaco por mi responsabilidad, proactividad, buena ortografía y capacidad de resolución de problemas.
-      Busco aportar valor en cada proyecto mediante creatividad, eficiencia y trabajo en equipo.
-    </p>
+    <div class="card">
+      <h2 id="about-title"></h2>
+      <p id="about-text"></p>
 
-    <div class="tabs">
-      <button onclick="showCategory('wp-es')">WordPress</button>
-      <button onclick="showCategory('excel-es')">Excel</button>
-      <button onclick="showCategory('video-es')">Videos</button>
-      <button onclick="showCategory('otros-es')">Otros</button>
+      <div class="tabs">
+        <button onclick="showCategory('wp')">WordPress</button>
+        <button onclick="showCategory('excel')">Excel</button>
+        <button onclick="showCategory('videos')">Videos</button>
+        <button onclick="showCategory('otros')">Otros</button>
+      </div>
+
+      <div id="wp" class="project-category active">
+        <h3>WordPress</h3>
+        <div class="project"><img src="politicaforum.png"><p>politicaforum.com</p></div>
+        <div class="project"><img src="maquisoft.png"><p>maquisoft.com.mx</p></div>
+      </div>
+      <div id="excel" class="project-category"><h3>Excel</h3></div>
+      <div id="videos" class="project-category"><h3>Videos</h3></div>
+      <div id="otros" class="project-category"><h3>Otros</h3></div>
     </div>
-
-    <div id="wp-es" class="project-category active">
-      <h3>Proyectos WordPress</h3>
-      <div class="project"><img src="politicaforum.png" /><p>politicaforum.com</p></div>
-      <div class="project"><img src="maquisoft.png" /><p>maquisoft.com.mx</p></div>
-    </div>
-
-    <div id="excel-es" class="project-category"><h3>Excel</h3></div>
-    <div id="video-es" class="project-category"><h3>Videos</h3></div>
-    <div id="otros-es" class="project-category"><h3>Otros Proyectos</h3></div>
-  </div>
-
-  <div class="container" id="content-en" style="display:none;">
-    <header>
-      <img src="FOto.png" alt="Profile photo" class="profile-img" />
-      <h1>Héctor Magallanes</h1>
-      <p>WordPress Developer & UX/UI Enthusiast</p>
-      <a class="cv-link" href="CV-Hmagallanes.pdf" download>📎 Download CV</a>
-    </header>
-
-    <h2>About Me</h2>
-    <p>
-      Committed professional, results-oriented and passionate about continuous improvement.
-      Specialized in data analysis, QA testing, technical support, and graphic design.
-      I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities.
-      I seek to add value to every project through creativity, efficiency, and teamwork.
-    </p>
-
-    <div class="tabs">
-      <button onclick="showCategory('wp-en')">WordPress</button>
-      <button onclick="showCategory('excel-en')">Excel</button>
-      <button onclick="showCategory('video-en')">Videos</button>
-      <button onclick="showCategory('otros-en')">Other</button>
-    </div>
-
-    <div id="wp-en" class="project-category active">
-      <h3>WordPress Projects</h3>
-      <div class="project"><img src="politicaforum.png" /><p>politicaforum.com</p></div>
-      <div class="project"><img src="maquisoft.png" /><p>maquisoft.com.mx</p></div>
-    </div>
-
-    <div id="excel-en" class="project-category"><h3>Excel Projects</h3></div>
-    <div id="video-en" class="project-category"><h3>Video Projects</h3></div>
-    <div id="otros-en" class="project-category"><h3>Other Projects</h3></div>
   </div>
 
   <script>
-    function setLanguage(lang) {
-      document.getElementById('lang-select').style.display = 'none';
-      document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
-      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+    const translations = {
+      es: {
+        name: "Héctor Magallanes",
+        role: "Desarrollador WordPress y Diseñador UX/UI",
+        cv: "Descargar CV",
+        aboutTitle: "Sobre mí",
+        aboutText: "Profesional comprometido, orientado a resultados y con pasión por la mejora continua. Especializado en análisis de datos, pruebas QA, soporte técnico y diseño gráfico. Destaco por mi responsabilidad, proactividad, buena ortografía y capacidad de resolución de problemas. Busco aportar valor en cada proyecto mediante creatividad, eficiencia y trabajo en equipo."
+      },
+      en: {
+        name: "Héctor Magallanes",
+        role: "WordPress Developer & UX/UI Enthusiast",
+        cv: "Download CV",
+        aboutTitle: "About Me",
+        aboutText: "Committed professional, results-oriented and passionate about continuous improvement. Specialized in data analysis, QA testing, technical support, and graphic design. I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities. I seek to add value to every project through creativity, efficiency, and teamwork."
+      }
+    };
+
+    function loadLanguage(lang) {
+      document.getElementById("language-choice").classList.add("hidden");
+      document.getElementById("content").classList.remove("hidden");
+      document.getElementById("name").innerText = translations[lang].name;
+      document.getElementById("role").innerText = translations[lang].role;
+      document.getElementById("cv-link").innerText = translations[lang].cv;
+      document.getElementById("about-title").innerText = translations[lang].aboutTitle;
+      document.getElementById("about-text").innerText = translations[lang].aboutText;
     }
 
     function showCategory(id) {
-      document.querySelectorAll('.project-category').forEach(el => el.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+      document.querySelectorAll(".project-category").forEach((el) => el.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
     }
   </script>
 </body>
+
 </html>
