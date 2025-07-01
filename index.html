@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Héctor Magallanes – Portafolio</title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Héctor Magallanes – Portafolio
+  </title>
   <style>
-    :root {
+   :root {
       --bg-light: #f0f0f0;
       --bg-dark: #121212;
       --text-light: #1a1a1a;
@@ -91,144 +92,225 @@
       text-decoration: none;
     }
   </style>
-</head>
-<body data-theme="light">
+ </head>
+ <body data-theme="light">
   <div class="lang-selector" id="lang-selector">
-    <h2>🌐 Select Language / Selecciona Idioma</h2>
-    <button class="lang-btn" onclick="selectLang('en')">🇺🇸 English</button>
-    <button class="lang-btn" onclick="selectLang('es')">🇲🇽 Español</button>
+   <h2>
+    🌐 Select Language / Selecciona Idioma
+   </h2>
+   <button class="lang-btn" onclick="selectLang('en')">
+    🇺🇸 English
+   </button>
+   <button class="lang-btn" onclick="selectLang('es')">
+    🇲🇽 Español
+   </button>
   </div>
-
   <div class="content" id="content-en">
-    <button class="toggle" onclick="toggleTheme()">🌓</button>
-    <button class="back-btn" onclick="goBack()">🔙</button>
-    <header>
-      <img src="FOto.png" alt="Profile Photo">
-      <h1>Héctor Magallanes</h1>
-      <p>WordPress Developer & UX/UI Enthusiast</p>
-      <a href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf" download class="download-btn">
-    <section>
-      <h2>About Me</h2>
-            <p>Committed professional, results-oriented and passionate about continuous improvement.
+   <button class="toggle" onclick="toggleTheme()">
+    🌓
+   </button>
+   <button class="back-btn" onclick="goBack()">
+    🔙
+   </button>
+   <header>
+    <img alt="Profile Photo" src="FOto.png"/>
+    <h1>
+     Héctor Magallanes
+    </h1>
+    <p>
+     WordPress Developer &amp; UX/UI Enthusiast
+    </p>
+    <a class="download-btn" download="" href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf">
+     <section>
+      <h2>
+       About Me
+      </h2>
+      <p>
+       Committed professional, results-oriented and passionate about continuous improvement.
         Specialized in data analysis, QA testing, technical support, and graphic design.
         I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities.
-        I seek to add value to every project through creativity, efficiency, and teamwork.</p>
-    </section>
-
-    <div class="category-buttons" id="en-categories">
-      <button onclick="showCategory('wp')">WordPress & Websites</button>
-      <button onclick="showCategory('excel')">Excel</button>
-      <button onclick="showCategory('video')">Videos</button>
-      <button onclick="showCategory('other')">Other Projects</button>
-    </div>
-
-    <div id="wp" class="project-category">
-      <h3>WordPress & Websites</h3>
+        I seek to add value to every project through creativity, efficiency, and teamwork.
+      </p>
+     </section>
+     <div class="category-buttons" id="en-categories">
+      <button onclick="showCategory('wp')">
+       WordPress &amp; Websites
+      </button>
+      <button onclick="showCategory('excel')">
+       Excel
+      </button>
+      <button onclick="showCategory('video')">
+       Videos
+      </button>
+      <button onclick="showCategory('other')">
+       Other Projects
+      </button>
+     </div>
+     <div class="project-category" id="wp">
+      <h3>
+       WordPress &amp; Websites
+      </h3>
       <div class="projects">
-        <img src="images/politicaforum.jpg" alt="PoliticaForum Project">
-        <img src="images/maquisoft.jpg" alt="Maquisoft Project">
+       <img alt="PoliticaForum Project" src="politicaforum.jpg"/>
+       <img alt="Maquisoft Project" src="maquisoft.jpg"/>
       </div>
-    </div>
-
-    <div id="excel" class="project-category" style="display:none">
-      <h3>Excel</h3>
-      <p>Dashboard in Excel for payroll management</p>
-    </div>
-
-    <div id="video" class="project-category" style="display:none">
-      <h3>Videos</h3>
-      <p>Corporate video created using Adobe Premiere</p>
-    </div>
-
-    <div id="other" class="project-category" style="display:none">
-      <h3>Other Projects</h3>
-      <p>Various graphic design and illustration projects</p>
-    </div>
-    </div>
-
-    <div id="excel" class="project-category" style="display:none">
-      <h3>Excel</h3>
-      <p>Dashboard in Excel for payroll management</p>
-    </div>
-
-    <div id="video" class="project-category" style="display:none">
-      <h3>Videos</h3>
-      <p>Corporate video created using Adobe Premiere</p>
-    </div>
-
-    <div id="other" class="project-category" style="display:none">
-      <h3>Other Projects</h3>
-      <p>Various graphic design and illustration projects</p>
-    </div>
+     </div>
+     <div class="project-category" id="excel" style="display:none">
+      <h3>
+       Excel
+      </h3>
+      <p>
+       Dashboard in Excel for payroll management
+      </p>
+     </div>
+     <div class="project-category" id="video" style="display:none">
+      <h3>
+       Videos
+      </h3>
+      <p>
+       Corporate video created using Adobe Premiere
+      </p>
+     </div>
+     <div class="project-category" id="other" style="display:none">
+      <h3>
+       Other Projects
+      </h3>
+      <p>
+       Various graphic design and illustration projects
+      </p>
+     </div>
+    </a>
+   </header>
   </div>
-
+  <div class="project-category" id="excel" style="display:none">
+   <h3>
+    Excel
+   </h3>
+   <p>
+    Dashboard in Excel for payroll management
+   </p>
+  </div>
+  <div class="project-category" id="video" style="display:none">
+   <h3>
+    Videos
+   </h3>
+   <p>
+    Corporate video created using Adobe Premiere
+   </p>
+  </div>
+  <div class="project-category" id="other" style="display:none">
+   <h3>
+    Other Projects
+   </h3>
+   <p>
+    Various graphic design and illustration projects
+   </p>
+  </div>
   <div class="content" id="content-es">
-    <button class="toggle" onclick="toggleTheme()">🌓</button>
-    <button class="back-btn" onclick="goBack()">🔙</button>
-    <header>
-      <img src="FOto.png" alt="Profile Photo">
-      <h1>Héctor Magallanes</h1>
-      <p>Desarrollador WordPress y Diseñador UX/UI</p>
-      <a href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf" download class="download-btn">
-    </header>
-    <section>
-      <h2>Sobre mí</h2>
-            <p>Profesional comprometido, orientado a resultados y con pasión por la mejora continua.
+   <button class="toggle" onclick="toggleTheme()">
+    🌓
+   </button>
+   <button class="back-btn" onclick="goBack()">
+    🔙
+   </button>
+   <header>
+    <img alt="Profile Photo" src="FOto.png"/>
+    <h1>
+     Héctor Magallanes
+    </h1>
+    <p>
+     Desarrollador WordPress y Diseñador UX/UI
+    </p>
+    <a class="download-btn" download="" href="https://raw.githubusercontent.com/KinkinxD12/portfolio-hector/main/CV-Hmagallanes.pdf">
+     📎 Descargar CV (PDF)
+    </a>
+   </header>
+   <section>
+    <h2>
+     Sobre mí
+    </h2>
+    <p>
+     Profesional comprometido, orientado a resultados y con pasión por la mejora continua.
           Especializado en análisis de datos, QA testing, soporte técnico y diseño gráfico. Destaco
           por mi responsabilidad, proactividad, buena ortografía y capacidad de resolución de
           problemas. Busco aportar valor en cada proyecto mediante creatividad, eficiencia y
-          trabajo en equipo</p>
-    </section>
-
-    <div class="category-buttons" id="en-categories">
-      <button onclick="showCategory('wp')">WordPress & Websites</button>
-      <button onclick="showCategory('excel')">Excel</button>
-      <button onclick="showCategory('video')">Videos</button>
-      <button onclick="showCategory('other')">Other Projects</button>
+          trabajo en equipo
+    </p>
+   </section>
+   <div class="category-buttons" id="en-categories">
+    <button onclick="showCategory('wp')">
+     WordPress &amp; Websites
+    </button>
+    <button onclick="showCategory('excel')">
+     Excel
+    </button>
+    <button onclick="showCategory('video')">
+     Videos
+    </button>
+    <button onclick="showCategory('other')">
+     Other Projects
+    </button>
+   </div>
+   <div class="project-category" id="wp">
+    <h3>
+     WordPress &amp; Websites
+    </h3>
+    <div class="projects">
+     <img alt="PoliticaForum Project" src="politicaforum.jpg"/>
+     <img alt="Maquisoft Project" src="maquisoft.jpg"/>
     </div>
-
-    <div id="wp" class="project-category">
-      <h3>WordPress & Websites</h3>
-      <div class="projects">
-        <img src="images/politicaforum.jpg" alt="PoliticaForum Project">
-        <img src="images/maquisoft.jpg" alt="Maquisoft Project">
-      </div>
-    </div>
-
-    <div id="excel" class="project-category" style="display:none">
-      <h3>Excel</h3>
-      <p>Dashboard in Excel for payroll management</p>
-    </div>
-
-    <div id="video" class="project-category" style="display:none">
-      <h3>Videos</h3>
-      <p>Corporate video created using Adobe Premiere</p>
-    </div>
-
-    <div id="other" class="project-category" style="display:none">
-      <h3>Other Projects</h3>
-      <p>Various graphic design and illustration projects</p>
-    </div>
-    </div>
-
-    <div id="excel" class="project-category" style="display:none">
-      <h3>Excel</h3>
-      <p>Dashboard en Excel para gestión de nómina</p>
-    </div>
-
-    <div id="video" class="project-category" style="display:none">
-      <h3>Videos</h3>
-      <p>Video corporativo realizado en Adobe Premiere</p>
-    </div>
-
-    <div id="other" class="project-category" style="display:none">
-      <h3>Otros Proyectos</h3>
-      <p>Proyectos varios de diseño gráfico e ilustración</p>
-    </div>
+   </div>
+   <div class="project-category" id="excel" style="display:none">
+    <h3>
+     Excel
+    </h3>
+    <p>
+     Dashboard in Excel for payroll management
+    </p>
+   </div>
+   <div class="project-category" id="video" style="display:none">
+    <h3>
+     Videos
+    </h3>
+    <p>
+     Corporate video created using Adobe Premiere
+    </p>
+   </div>
+   <div class="project-category" id="other" style="display:none">
+    <h3>
+     Other Projects
+    </h3>
+    <p>
+     Various graphic design and illustration projects
+    </p>
+   </div>
   </div>
-
+  <div class="project-category" id="excel" style="display:none">
+   <h3>
+    Excel
+   </h3>
+   <p>
+    Dashboard en Excel para gestión de nómina
+   </p>
+  </div>
+  <div class="project-category" id="video" style="display:none">
+   <h3>
+    Videos
+   </h3>
+   <p>
+    Video corporativo realizado en Adobe Premiere
+   </p>
+  </div>
+  <div class="project-category" id="other" style="display:none">
+   <h3>
+    Otros Proyectos
+   </h3>
+   <p>
+    Proyectos varios de diseño gráfico e ilustración
+   </p>
+  </div>
   <script>
-    function toggleTheme() {
+   function toggleTheme() {
       const html = document.documentElement;
       html.setAttribute("data-theme", html.getAttribute("data-theme") === "dark" ? "light" : "dark");
     }
@@ -248,5 +330,5 @@
       document.getElementById('lang-selector').style.display = 'flex';
     }
   </script>
-</body>
+ </body>
 </html>
