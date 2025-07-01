@@ -26,17 +26,19 @@
       font-family: 'Segoe UI', sans-serif;
       transition: background 0.3s, color 0.3s;
     }
-    .toggle {
+    .toggle, .back-btn {
       position: fixed;
       top: 10px;
-      right: 10px;
       background: var(--primary);
       color: white;
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      z-index: 1000;
     }
+    .toggle { right: 10px; }
+    .back-btn { left: 10px; }
     .lang-selector {
       height: 100vh;
       display: flex;
@@ -90,6 +92,7 @@
 
   <div class="content" id="content-en">
     <button class="toggle" onclick="toggleTheme()">🌓</button>
+    <button class="back-btn" onclick="goBack()">🔙</button>
     <header>
       <img src="foto-perfil.png" alt="Profile Photo">
       <h1>Héctor Magallanes</h1>
@@ -111,6 +114,7 @@
 
   <div class="content" id="content-es">
     <button class="toggle" onclick="toggleTheme()">🌓</button>
+    <button class="back-btn" onclick="goBack()">🔙</button>
     <header>
       <img src="foto-perfil.png" alt="Foto de Perfil">
       <h1>Héctor Magallanes</h1>
@@ -137,8 +141,16 @@
     }
     function selectLang(lang) {
       document.getElementById('lang-selector').style.display = 'none';
+      document.getElementById('content-en').style.display = 'none';
+      document.getElementById('content-es').style.display = 'none';
       document.getElementById('content-' + lang).style.display = 'block';
+    }
+    function goBack() {
+      document.getElementById('content-en').style.display = 'none';
+      document.getElementById('content-es').style.display = 'none';
+      document.getElementById('lang-selector').style.display = 'flex';
     }
   </script>
 </body>
 </html>
+
