@@ -1,205 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Héctor Magallanes - Portafolio</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Outfit', sans-serif;
-            display: flex;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <title>Selecciona tu idioma</title>
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to bottom right, #2C3E50, #34495E);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-        .sidebar {
-            background-color: #2C3E50;
-            color: white;
-            width: 280px;
-            padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
 
-        .sidebar h2 {
-            margin-bottom: 1rem;
-        }
+    .buttons {
+      display: flex;
+      gap: 2rem;
+    }
 
-        .language-select {
-            margin-bottom: 2rem;
-        }
+    button {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background-color: #ffffff;
+      color: #2C3E50;
+      transition: all 0.3s ease;
+    }
 
-        .language-select button {
-            margin: 0.5rem;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            background-color: #34495E;
-            color: white;
-            cursor: pointer;
-        }
-
-        .profile-img {
-            width: 150px;
-            border-radius: 50%;
-            margin: 1rem 0;
-        }
-
-        .skills {
-            text-align: left;
-            margin-top: 2rem;
-        }
-
-        .main-content {
-            flex-grow: 1;
-            padding: 2rem;
-            background-color: #ECF0F1;
-            overflow-y: auto;
-        }
-
-        .project-section {
-            margin-top: 2rem;
-        }
-
-        .tabs button {
-            margin: 0.5rem;
-            padding: 0.5rem 1rem;
-            background-color: #3f51b5;
-            color: white;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-        }
-
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .project {
-            margin: 1rem;
-            text-align: center;
-        }
-
-        .project img {
-            width: 150px;
-            height: auto;
-            border-radius: 0.5rem;
-        }
-    </style>
+    button:hover {
+      background-color: #1abc9c;
+      color: white;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="sidebar">
-        <div class="language-select">
-            <h2>🌐 Language</h2>
-            <button onclick="switchLang('en')">English</button>
-            <button onclick="switchLang('es')">Español</button>
-        </div>
-        <img src="images/FOto.png" alt="Foto de perfil" class="profile-img">
-        <h3 id="name">Héctor Magallanes</h3>
-        <p id="role">Desarrollador WordPress y Diseñador UX/UI</p>
-        <a id="cv-link" href="images/Hector_Magallanes_CV.pdf" download style="color:white; text-decoration:underline">Descargar CV</a>
-        <div class="skills">
-            <h4 id="skills-title">Habilidades</h4>
-            <ul id="skills-list">
-                <li>HTML, CSS, WordPress</li>
-                <li>Diseño UX/UI</li>
-                <li>QA Testing</li>
-                <li>Soporte técnico</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="main-content">
-        <h2 id="about-title">Sobre mí</h2>
-        <p id="about-text">
-            Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías,
-            configurado pagos y publicado sitios completos usando WordPress y cPanel.
-        </p>
-
-        <div class="tabs">
-            <button onclick="showCategory('wordpress')">WordPress & Websites</button>
-            <button onclick="showCategory('excel')">Excel</button>
-            <button onclick="showCategory('videos')">Videos</button>
-            <button onclick="showCategory('others')">Otros</button>
-        </div>
-
-        <div class="project-section">
-            <div id="wordpress" class="projects">
-                <div class="project">
-                    <img src="images/politicaforum.png" alt="PoliticaForum">
-                    <p>politicaforum.com</p>
-                </div>
-                <div class="project">
-                    <img src="images/maquisoft.png" alt="Maquisoft">
-                    <p>maquisoft.com.mx</p>
-                </div>
-            </div>
-
-            <div id="excel" class="projects" style="display:none">
-                <!-- Agrega proyectos de Excel -->
-            </div>
-            <div id="videos" class="projects" style="display:none">
-                <!-- Agrega proyectos de Videos -->
-            </div>
-            <div id="others" class="projects" style="display:none">
-                <div class="project">
-                    <img src="images/otro.png" alt="Otro">
-                    <p>Plugin Minecraft</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const content = {
-            es: {
-                name: "Héctor Magallanes",
-                role: "Desarrollador WordPress y Diseñador UX/UI",
-                cv: "Descargar CV",
-                aboutTitle: "Sobre mí",
-                aboutText: "Soy desarrollador WordPress con experiencia en HTML, CSS, pruebas QA y diseño visual. He creado sitios con membresías, configurado pagos y publicado sitios completos usando WordPress y cPanel.",
-                skillsTitle: "Habilidades",
-                skills: ["HTML, CSS, WordPress", "Diseño UX/UI", "QA Testing", "Soporte técnico"]
-            },
-            en: {
-                name: "Héctor Magallanes",
-                role: "WordPress Developer & UX/UI Enthusiast",
-                cv: "Download CV",
-                aboutTitle: "About Me",
-                aboutText: "Committed professional, results-oriented and passionate about continuous improvement. Specialized in data analysis, QA testing, technical support, and graphic design. I stand out for my responsibility, proactivity, strong writing skills, and problem-solving abilities. I seek to add value to every project through creativity, efficiency, and teamwork.",
-                skillsTitle: "Skills",
-                skills: ["HTML, CSS, WordPress", "UX/UI Design", "QA Testing", "Tech Support"]
-            }
-        };
-
-        function switchLang(lang) {
-            const t = content[lang];
-            document.getElementById('name').innerText = t.name;
-            document.getElementById('role').innerText = t.role;
-            document.getElementById('cv-link').innerText = t.cv;
-            document.getElementById('about-title').innerText = t.aboutTitle;
-            document.getElementById('about-text').innerText = t.aboutText;
-            document.getElementById('skills-title').innerText = t.skillsTitle;
-            const skillsList = document.getElementById('skills-list');
-            skillsList.innerHTML = '';
-            t.skills.forEach(skill => {
-                const li = document.createElement('li');
-                li.innerText = skill;
-                skillsList.appendChild(li);
-            });
-        }
-
-        function showCategory(id) {
-            document.querySelectorAll('.projects').forEach(el => el.style.display = 'none');
-            document.getElementById(id).style.display = 'flex';
-        }
-    </script>
+  <h1>🌐 Selecciona tu idioma / Choose your language</h1>
+  <div class="buttons">
+    <button onclick="location.href='espanol/index.html'">Español 🇲🇽</button>
+    <button onclick="location.href='ingles/index.html'">English 🇺🇸</button>
+  </div>
 </body>
-
 </html>
